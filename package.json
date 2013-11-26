@@ -1,0 +1,13 @@
+{
+  "name": "coffeepress",
+  "description": "Wordpress clone written in coffeescript!",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.5.4",
+    "jade": ">= 0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "0.10.0",
+    "should": "~2.1.0"
+  }
+}
