@@ -1,5 +1,14 @@
+routes = require "../routes/index"
 require "should"
 
-describe "feature", ->
-  it "should add two numbers", ->
-    (2+2).should.equal 4
+describe 'routes', ->
+  describe 'index', ->
+    it "should display index with posts", ->
+      req = null
+      res =
+        render: (view, vars) ->
+          view.should.equal "index"
+          vars.title.should.equal "My Coffeepress Blog"
+          vars.posts.should.eql []
+      routes.index(req, res)
+
