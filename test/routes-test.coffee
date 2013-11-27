@@ -1,14 +1,12 @@
 routes = require "../routes/index"
 require "should"
 
-describe 'routes', ->
+describe "routes", ->
   req = {}
   res = {}
-  describe 'index', ->
+  describe "index", ->
     it "should display index with posts", (done)->
-      req = null
-      res =
-        render: (view, vars) ->
+      res.render = (view, vars) ->
           view.should.equal "index"
           vars.title.should.equal "My Coffeepress Blog"
           vars.posts.should.eql []
@@ -16,9 +14,9 @@ describe 'routes', ->
       routes.index(req, res)
 
   describe "new post", ->
-    it "should display the add post page", (done)->
+    it "should display the add post page", (done) ->
       res.render = (view, vars) ->
           view.should.equal "add_post"
           vars.title.should.equal "Write New Post"
           done()
-      routes.newPost req, res
+      routes.newPost(req, res)
