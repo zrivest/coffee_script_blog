@@ -2,6 +2,7 @@
 ###
 Module dependencies.
 ###
+
 express = require("express")
 routes = require("./routes")
 user = require("./routes/user")
@@ -30,4 +31,3 @@ app.get "/post/:id", routes.viewPost
 app.get "/users", user.list
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
-
