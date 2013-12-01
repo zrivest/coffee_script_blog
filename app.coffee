@@ -8,7 +8,20 @@ routes = require("./routes")
 user = require("./routes/user")
 http = require("http")
 path = require("path")
+mongoose = require("mongoose")
 app = express()
+
+app.configure "development", ->
+  mongoose.connect 'mongodb://localhost/coffeepress-dev'
+  app.use express.errorHandler(
+    dumpExceptions: true
+    showStack: true
+  )
+
+app.configure "production", ->
+  mongoose.connect 'mongodb://localhost/coffeepress-prod'
+  app.use express.errorHandler()
+
 
 # all environments
 app.set "port", process.env.PORT or 3000
